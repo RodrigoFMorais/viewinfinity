@@ -26,4 +26,10 @@ export class UserService {
     return this.http.post(this.logarURL + '/users', userData); 
   }
 
+  public logout(){
+    window.localStorage.clear();
+    localStorage.removeItem('authorization');
+    alert("Você fez logout!");
+  }
+
 }
