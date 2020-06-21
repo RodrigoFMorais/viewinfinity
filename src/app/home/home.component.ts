@@ -9,10 +9,14 @@ import { Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  formData: any = {};
+  errors: any= {};
+  
   constructor(private userService: UserService,
     private router: Router) { }
 
   ngOnInit(): void {
+
   }
 
   onLogoutClick(){

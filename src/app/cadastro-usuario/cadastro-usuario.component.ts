@@ -17,7 +17,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+ 
   cadastro() {
     this.userService.cadastro(this.formData).subscribe(
       (resu)=> {

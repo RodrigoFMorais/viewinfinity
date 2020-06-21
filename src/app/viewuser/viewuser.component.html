@@ -1,0 +1,40 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="/viewuser">Dados Cadastrais</a>
+  </li>
+  <li class="nav-item dropdown"> 
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gerenciar Lojas</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/home">Listar lojas</a>
+      <a class="dropdown-item" href="/home">Cadastrar lojas</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="onLogoutClick()" href="/login">Sair</a>
+  </li>
+</ul> 
+
+<div class="container" >
+  <form #cadastroForm="ngForm" (ngSubmit)="update()">
+    <div class="form-group">
+      <label for="Name">Nome</label>
+      <input type="text" class="form-control" name="Name" id="Name" [(ngModel)]="formData.name" value="formData.name" required>
+    </div>
+    <div class="form-group">
+      <label for="Email">Email</label>
+      <input type="email" class="form-control" name="Email" id="Email" [(ngModel)]="formData.email" required>
+    </div> 
+    <div class="form-group"> 
+      <label for="Telefone">Telefone</label>
+      <input type="text" class="form-control" name="Telefone"  id="Telefone" [(ngModel)]="formData.telephone" required>
+    </div>
+    <div class="form-group"> 
+      <label for="Cpf">CPF</label>
+      <input type="text" class="form-control" name="Cpf"  id="Cpf" [(ngModel)]="formData.cpf" required>
+    </div>
+    <button [disabled]="!cadastroForm.form.valid" type="submit" class="btn btn-primary">Atualizar</button>
+  </form>
+  <div *ngIf="errors.error" class="alert alert-danger">
+      {{errors.error}}
+  </div>
+</div>

@@ -9,13 +9,15 @@ import { LoginComponent } from './login/login.component';
 import { UserService } from './shared/user.service';
 import { HomeComponent } from './home/home.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+import { ViewuserComponent } from './viewuser/viewuser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    CadastroUsuarioComponent
+    CadastroUsuarioComponent,
+    ViewuserComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.co
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [
+    UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
