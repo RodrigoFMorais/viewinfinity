@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../shared/store.service';
-import { Router} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import {Lojas} from './lojas';
 
 @Component({
@@ -12,15 +12,28 @@ export class ListaLojasComponent implements OnInit {
 
   lojas: Lojas[];
   errors: any= {};
+  filter: string = "";
 
   constructor(private storeService: StoreService,
+    private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
-    this.storeService.listalojas().subscribe(dados => this.lojas = dados);
+
+    this.route.params.subscribe(
+      (params: any) => {
+             if (params['filter']) {
+              this.filter = `${params['filter']}`; 
+             } else {
+              this.filter = " ";
+             }
+      }
+    );
+
+    this.storeService.listalojas(this.filter).subscribe(dados => this.lojas = dados);
   }
 
-  onLogoutClick(){
+  onLogoutClick(){ 
     this.storeService.logout();
   }
 
@@ -36,7 +49,7 @@ export class ListaLojasComponent implements OnInit {
       },
       (errorResponse)=> {
         this.errors = errorResponse.error;
-        alert("Algo de errado não está certo! :-( error: " + errorResponse);
+        alert("Algo de errado não está certo! :-( error: " + this.errors);
       }  
     )
   }

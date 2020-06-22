@@ -7,6 +7,7 @@ import { ViewuserComponent } from './viewuser/viewuser.component';
 import { ViewstoreComponent } from './viewstore/viewstore.component';
 import { CadastroLojaComponent } from './cadastro-loja/cadastro-loja.component';
 import { ListaLojasComponent } from './lista-lojas/lista-lojas.component';
+import { FiltroComponent } from './filtro/filtro.component';
 
 const routes: Routes = [
   {path: "", pathMatch: "full", redirectTo: "/login"},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: "viewuser", component: ViewuserComponent},
   {path: "viewstore", component: ViewstoreComponent},
   {path: "cadastro-loja", component: CadastroLojaComponent},
-  {path: "lista-lojas", component: ListaLojasComponent}
+  {path: "lista-lojas", component: ListaLojasComponent},
+  {path: "filtro", component: FiltroComponent}
 ];
  
 @NgModule({

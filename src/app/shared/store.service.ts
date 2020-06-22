@@ -16,15 +16,15 @@ export class StoreService {
   public logout(){
     window.localStorage.clear();
     localStorage.removeItem('authorization');
-    alert("Você fez logout! Volte sempre! :-)"); 
+    alert("Logout! Volte sempre! :-)"); 
   }
 
   public cadastroloja(userData: any): Observable<any> {
     return this.http.post(this.logarURL + '/store/' + localStorage.getItem('authorization'), userData); 
   }
 
-  public listalojas(): Observable<any> {
-    return this.http.get<Lojas[]>(this.logarURL + '/store/' + localStorage.getItem('authorization')); 
+  public listalojas(filtro: string): Observable<any> {
+    return this.http.get<Lojas[]>(this.logarURL + '/store/' + localStorage.getItem('authorization') + filtro); 
   }
 
   public update(userData: any, id: string): Observable<any> {

@@ -14,6 +14,7 @@ import { ViewuserComponent } from './viewuser/viewuser.component';
 import { ViewstoreComponent } from './viewstore/viewstore.component';
 import { CadastroLojaComponent } from './cadastro-loja/cadastro-loja.component';
 import { ListaLojasComponent } from './lista-lojas/lista-lojas.component';
+import { FiltroComponent } from './filtro/filtro.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ListaLojasComponent } from './lista-lojas/lista-lojas.component';
     ViewuserComponent,
     ViewstoreComponent,
     CadastroLojaComponent,
-    ListaLojasComponent
+    ListaLojasComponent,
+    FiltroComponent
   ],
   imports: [
     BrowserModule,
