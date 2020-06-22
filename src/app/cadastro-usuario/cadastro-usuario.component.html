@@ -17,16 +17,40 @@
         <input type="text" class="form-control" name="Name" id="Name" [(ngModel)]="formData.name" required>
       </div>
       <div class="form-group">
-        <label for="Email">E-mail</label>
-        <input type="email" class="form-control" name="Email" id="Email" [(ngModel)]="formData.email" required>
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" name="email" id="email" [(ngModel)]="formData.email" required
+        #email="ngModel"
+        pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+        >
+        <div *ngIf="email.invalid && (cadastroForm.submitted || email.touched)" class="alert alert-danger">
+          <div *ngIf="email.errors.required"> Entre com um email valido!</div>
+          <div *ngIf="email.errors.pattern"> 
+            erro no email. </div>
+        </div>
       </div>
       <div class="form-group"> 
-        <label for="Password">Password</label>
-        <input type="password" class="form-control" name="Password"  id="Password" [(ngModel)]="formData.password" autocomplete="on" required>
+        <label for="Password">Senha</label>
+        <input type="password" class="form-control" name="Password"  id="Password" [(ngModel)]="formData.password" autocomplete="on" required
+        #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+        >
+        <div *ngIf="password.invalid && (cadastroForm.submitted || password.touched)" class="alert alert-danger">
+          <div *ngIf="password.errors.required"> A senha é obrigatória </div>
+          <div *ngIf="password.errors.pattern"> 
+            Deve conter pelo menos um número e uma letra maiúscula e minúscula e pelo menos 8 ou mais caracteres. </div>
+        </div>
+  
       </div>
       <div class="form-group"> 
-        <label for="Cpassword">Confirm Password</label>
-        <input type="password" class="form-control" name="Cpassword"  id="Cpassword" autocomplete="on" required>
+        <label for="Cpassword">Confirmar Senha</label>
+        <input type="password" class="form-control" name="Cpassword"  id="Cpassword" [(ngModel)]="formData.cpassword" autocomplete="on" required
+        required #Cpassword="ngModel" pattern="{{ password.value }}"
+        >
+        <div *ngIf=" Cpassword.invalid && (cadastroForm.submitted || Cpassword.touched)" class="alert alert-danger">
+          <div *ngIf="Cpassword.errors.required"> 
+            Confirmar a senha é necessária. </div>
+          <div *ngIf="Cpassword.errors.pattern"> 
+            Senha e Confirmar senha não corresponde.</div>
+        </div>
       </div>
       <div class="form-group"> 
         <label for="Telefone">Telefone</label>
