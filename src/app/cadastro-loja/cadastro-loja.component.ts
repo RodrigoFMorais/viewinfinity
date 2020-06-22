@@ -9,23 +9,24 @@ import { Router} from '@angular/router';
 })
 export class CadastroLojaComponent implements OnInit {
 
-  formData: any = {};
-  errors: any= {};
+  formData:  any ={} ;//new FormData();
+  errors: any= {}; 
 
   constructor(private storeService: StoreService,
     private router: Router) { }
 
   ngOnInit(): void {
-  }
 
+  }
+ 
   onLogoutClick(){
     this.storeService.logout();
   }
 
   teste(){
+    console.log(this.formData);
     this.storeService.cadastroloja(this.formData).subscribe(
       (resu)=> {
-        console.log(this.formData);
         alert("Cadastro atualizado com sucess!");
         this.router.navigate(['/home', {registered: 'success'}])
       },
