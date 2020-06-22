@@ -9,7 +9,7 @@ import { Router} from '@angular/router';
 })
 export class CadastroLojaComponent implements OnInit {
 
-  formData:  any ={} ;//new FormData();
+  formData:  any ={} ;
   errors: any= {}; 
 
   constructor(private storeService: StoreService,

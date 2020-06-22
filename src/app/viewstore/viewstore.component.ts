@@ -12,6 +12,8 @@ export class ViewstoreComponent implements OnInit {
   formData: any= {};
   errors: any= {};
   storeid: string;
+  zoom: number = 15;
+
 
   constructor(private storeService: StoreService,
     private route: ActivatedRoute,

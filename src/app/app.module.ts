@@ -15,6 +15,8 @@ import { ViewstoreComponent } from './viewstore/viewstore.component';
 import { CadastroLojaComponent } from './cadastro-loja/cadastro-loja.component';
 import { ListaLojasComponent } from './lista-lojas/lista-lojas.component';
 import { FiltroComponent } from './filtro/filtro.component';
+import { AgmCoreModule } from '@agm/core';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,10 @@ import { FiltroComponent } from './filtro/filtro.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.AuthKeyG
+    })
   ],
   providers: [
     StoreService,

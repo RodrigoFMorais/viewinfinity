@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable,} from 'rxjs';
 import 'rxjs/Rx';
 import {Lojas} from '../lista-lojas/lojas';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class StoreService {
 
   constructor(private http: HttpClient) { }
 
-  logarURL='https://backendinfinity.herokuapp.com';
-
+  logarURL=environment.urlback;
+  
   public logout(){
     window.localStorage.clear();
     localStorage.removeItem('authorization');

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable,} from 'rxjs';
+import { environment } from '../../environments/environment';
 import 'rxjs/Rx';
 
 
@@ -10,7 +11,7 @@ import 'rxjs/Rx';
 export class UserService {
 
 
-  logarURL='https://backendinfinity.herokuapp.com';
+  logarURL=environment.urlback; 
 
   constructor( private http: HttpClient) { }
 
