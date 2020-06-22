@@ -21,6 +21,7 @@ export class CadastroUsuarioComponent implements OnInit {
   cadastro() {
     this.userService.cadastro(this.formData).subscribe(
       (resu)=> {
+        alert("Cadastro atualizado com sucess!");
         this.router.navigate(['/login', {registered: 'success'}])
       },
       (errorResponse)=> {

@@ -23,7 +23,7 @@ export class ViewuserComponent implements OnInit {
     )
   } 
 
-  onLogoutClick(){
+  onLogoutClick(){ 
     this.userService.logout();
   }
 
@@ -38,5 +38,6 @@ export class ViewuserComponent implements OnInit {
       }  
     )
   }
+  
 } 
  
