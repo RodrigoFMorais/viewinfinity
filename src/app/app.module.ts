@@ -16,7 +16,7 @@ import { CadastroLojaComponent } from './cadastro-loja/cadastro-loja.component';
 import { ListaLojasComponent } from './lista-lojas/lista-lojas.component';
 import { FiltroComponent } from './filtro/filtro.component';
 import { AgmCoreModule } from '@agm/core';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 
 @NgModule({
   declarations: [
